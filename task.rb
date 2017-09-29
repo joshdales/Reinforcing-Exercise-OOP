@@ -25,9 +25,9 @@ end
 class TodoList
   @@tasks = []
   def initialize(description, due_date)
-    task = Task.new(description, due_date)
-    @@tasks << tasks
-    task
+    new_task = Task.new(description, due_date)
+    @@tasks << new_task
+    new_task
   end
 
   def add_task(description, due_date)
@@ -36,4 +36,12 @@ class TodoList
     new_task
   end
 
+  def self.tasks
+    @@tasks
+  end
 end
+
+list =TodoList.new("Buy this!", "Oct")
+list.add_task("Buy that!", "Nov")
+list.add_task("Buy Everything!", "Dec")
+puts TodoList.tasks
